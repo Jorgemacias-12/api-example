@@ -1,10 +1,11 @@
-import express, { type Request, type Response } from 'express'
+import express, { json, type Request, type Response } from 'express'
 import helmet from 'helmet'
 import morgan from 'morgan'
 import cors from 'cors'
 import fs from 'fs'
 import https from 'https'
 import http from 'http'
+import { routes } from '@/routes'
 
 const isDev = process.env.NODE_ENV !== 'production'
 
@@ -14,9 +15,12 @@ const PORT = process.env.PORT || 3000
 app.use(helmet())
 app.use(cors())
 app.use(morgan('combined'))
+app.use(json())
 
-app.use('/', (req: Request, res: Response) => {
-  res.json({ message: 'Hello world!' })
+app.use('/api', routes)
+
+app.get('/api', (req, res) => {
+  res.status(200).send('Ok!')
 })
 
 let server
@@ -40,9 +44,11 @@ if (!isDev) {
   server.listen(PORT, () => {
     console.log(`Running HTTPS server on port ${PORT}`)
   })
-} else {
+}
+
+if (isDev) {
   server = http.createServer(app)
   server.listen(PORT, () => {
-    console.log(`Running HTTP server on port ${PORT}`)
+    console.log(`Running HTTP server on http://localhost:${PORT}`)
   })
 }
