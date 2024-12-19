@@ -2,14 +2,23 @@
   "name": "smartbus-api",
   "module": "index.ts",
   "type": "module",
+  "scripts": {
+    "dev": "bun --watch index.ts"
+  },
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "^1.1.14"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
   },
   "dependencies": {
+    "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
-    "express": "^4.21.2"
+    "@types/helmet": "^4.0.0",
+    "@types/morgan": "^1.9.9",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "helmet": "^8.0.0",
+    "morgan": "^1.10.0"
   }
 }
