@@ -13,12 +13,16 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
+    "@types/bcrypt": "^5.0.2",
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
     "@types/helmet": "^4.0.0",
     "@types/morgan": "^1.9.9",
+    "bcrypt": "^5.1.1",
     "cors": "^2.8.5",
+    "crypto": "^1.0.1",
     "express": "^4.21.2",
+    "firebase": "^11.1.0",
     "helmet": "^8.0.0",
     "https": "^1.0.0",
     "morgan": "^1.10.0"
